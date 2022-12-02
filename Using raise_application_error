@@ -1,0 +1,13 @@
+set serveroutput on;
+declare
+e exception;
+pragma exception_init(e,-20015);
+n number:=10;
+begin
+for i in 1..n loop
+dbms_output.put_line(i*i);
+if i*i=36 then
+raise_application_error(-20040,'The number 36 reached');
+end if;
+end loop;
+end;
